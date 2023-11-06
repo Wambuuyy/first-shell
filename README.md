@@ -7,16 +7,6 @@ It accepts and executes user commands.
 I mostly used these calls:
 fork, wait, waitpid, free, getline, read, write, open, execve, exit, fflush,
 malloc, isatty, perror, strtok.
-## Process Description
-
-The next steps are a brief description about how the shell works:
-
-1. First, the parent process is created when the user run the program.
-2. Then, the *isatty()* function using *STDIN_FILENO* file descriptor -fd- to tests if there is an open file descriptor referring to a terminal. If *isatty()* returns 1, the prompt is showed using *write()* with *STDOUT_FILENO* as fd and waits for an input user command line.
-3. When the user types a command, *getline()* function reads an entire line from the stream and *strtok()* function breaks the inputted command into a sequence of non-empty tokens.
-4. Next, it creates a separate child process suing *fork()* that performs the inputted command. Unless otherwise is specified, the parent process waits for the child to exit before continuing.
-5. After tokening the command, *execve()* function brings and executes it, the it frees all allocated memory with *free()*.
-6. Finally, the program returns to main process: prints the prompt, and waits for another user input.
 
 Prompt looks like this: Pru$$
 
@@ -37,6 +27,8 @@ Prompt looks like this: Pru$$
 
 
 <h2>HOW IT WORKS:</h2>
+
+These steps will explain:
 1. When the user runs a program, aparent process is created.<\n>
 2. The * i don know yet* function tests if there is an open file descriptor reffering to the terminal using the STD_FILENO file descriptor.If return is 1, the prompt is dispalyed and waits for the user to input.
 3. When user types a command, *getline()* function parses the line and *strtok()* function breaks the input to non-empty tokens.
@@ -47,7 +39,7 @@ Prompt looks like this: Pru$$
 
 <h2>Requirements:</h2>
 
-<h3>General</h3>h3>
+<h3>General</h3>
 - Allowed editors: `vi`, `vim`, `emacs`
 - All your files will be compiled on Ubuntu 14.04 LTS
 - Your programs and functions will be compiled with `gcc 4.8.4` using the flags `-Wall` `-Werror` `-Wextra` `-pedantic` `-std=gnu89`
