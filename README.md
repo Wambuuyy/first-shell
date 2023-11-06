@@ -27,8 +27,8 @@ Prompt looks like this: Pru$$
 
 
 <h2>HOW IT WORKS:</h2>
-1. When the user runs a program, aparent process is created.\n
-2. The * i don know yet* function tests if there is an open file descriptor reffering to the terminal \n
+1. When the user runs a program, aparent process is created.<\n>
+2. The * i don know yet* function tests if there is an open file descriptor reffering to the terminal <\n>
   using the STD_FILENO file descriptor.If return is 1, the prompt is dispalyed and waits for the user to input.
 3. When user types a command, *getline()* function parses the line and *strtok()* function breaks the input to non-empty tokens.
 4. A child process is  then created using *fork()* command: It does as the command says. The parent process has to wait for the child to exit before it continues.
