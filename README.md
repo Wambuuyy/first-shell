@@ -46,10 +46,10 @@ These steps will explain:
 - Your programs and functions will be compiled with `gcc 4.8.4` using the flags `-Wall` `-Werror` `-Wextra` `-pedantic` `-std=gnu89`
 - All your files should end with a new line
 - A README.md file, at the root of the folder of the project is mandatory
-- Your code should use the Betty style. It will be checked using [betty-style.pl](https://github.com/alx-tools/Betty/blob/master/betty-style.pl) and [betty-doc.pl](https://github.com/alx-tools/Betty/blob/master/betty-doc.pl)
+- Your code should use the `Betty` style. It will be checked using [betty-style.pl](https://github.com/alx-tools/Betty/blob/master/betty-style.pl) and [betty-doc.pl](https://github.com/alx-tools/Betty/blob/master/betty-doc.pl)
 - Your shell should not have any memory leaks
 - No more than 5 functions per file
 - All your header files should be include guarded
 - Use system calls only when you need to (why?)
-- Write a README with the description of your project
-- You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. Format, see [Docker](https://github.com/moby/moby/blob/master/AUTHORS)
+- Write a `README` with the description of your project
+- You should have an `AUTHORS` file at the root of your repository, listing all individuals having contributed content to the repository. Format, see [Docker](https://github.com/moby/moby/blob/master/AUTHORS)
