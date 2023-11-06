@@ -1,6 +1,6 @@
 <h1 align ="center">SIMPLE SHELL WRITTEN IN C LANGUAGE</h1><br>
 
-**##Description**
+##Description
 The repo contains files of the simple shell that mimics the Unix SHell program:
 It accepts and executes user commands.
 
@@ -9,7 +9,7 @@ fork, wait, waitpid, free, getline, read, write, open, execve, exit, fflush,
 malloc, isatty, perror, strtok.
 
 Prompt looks like this: Pru$$
-**<h2>Features used</h2>**
+<h2>Features used</h2>
 
 *  program displays a prompt and waits for the user to input
 *  it always ends in a new line(user has to press enter for command to be run)
@@ -25,7 +25,7 @@ Prompt looks like this: Pru$$
 *  If the command is not executable, an error is displayed and the prompt appers again.
 
 
-**<h2>HOW IT WORKS:</h2>**
+<h2>HOW IT WORKS:</h2>
 1. When the user runs a program, aparent process is created.
 2. The * i don know yet* function tests if there is an open file descriptor reffering to the terminal
   using the STD_FILENO file descriptor.If return is 1, the prompt is dispalyed and waits for the user to input.
@@ -35,7 +35,7 @@ Prompt looks like this: Pru$$
 6. The program returns the output if there was any and then displays the prompt and waits for another command input.
 
 
-**## Requirements:**
+## Requirements:
 
 <h3>General</h3>h3>
 Allowed editors: vi, vim, emacs
