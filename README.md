@@ -27,27 +27,25 @@ Prompt looks like this: Pru$$
 
 
 <h2>HOW IT WORKS:</h2>
-1. When the user runs a program, aparent process is created.<\n>
-2. The * i don know yet* function tests if there is an open file descriptor reffering to the terminal <\n>
-  using the STD_FILENO file descriptor.If return is 1, the prompt is dispalyed and waits for the user to input.
-3. When user types a command, *getline()* function parses the line and *strtok()* function breaks the input to non-empty tokens.
-4. A child process is  then created using *fork()* command: It does as the command says. The parent process has to wait for the child to exit before it continues.
-5. After tokenization, *execve()* brings and executes it and later frees all allocated memory using *free()*.
-6. The program returns the output if there was any and then displays the prompt and waits for another command input.
+* When the user runs a program, aparent process is created.<\n>
+* The * i don know yet* function tests if there is an open file descriptor reffering to the terminal using the STD_FILENO file descriptor.If return is 1, the prompt is dispalyed and waits for the user to input.
+* When user types a command, *getline()* function parses the line and *strtok()* function breaks the input to non-empty tokens.
+* A child process is  then created using *fork()* command: It does as the command says. The parent process has to wait for the child to exit before it continues.
+* After tokenization, *execve()* brings and executes it and later frees all allocated memory using *free()*.
+* The program returns the output if there was any and then displays the prompt and waits for another command input.
 
 
 <h2>Requirements:</h2>
 
 <h3>General</h3>h3>
-Allowed editors: vi, vim, emacs
-All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
-All your files should end with a new line
-A README.md file, at the root of the folder of the project is mandatory
-Your code should use the Betty style. It will be checked using [betty-style.pl](https://github.com/alx-tools/Betty/blob/master/betty-style.pl) and [betty-doc.pl](https://github.com/alx-tools/Betty/blob/master/betty-doc.pl)
-Your shell should not have any memory leaks
-No more than 5 functions per file
-All your header files should be include guarded
-Use system calls only when you need to (why?)
-Write a README with the description of your project
-You should have an AUTHORS file at the root of your repository,
-  listing all individuals having contributed content to the repository. Format, see [Docker](https://github.com/moby/moby/blob/master/AUTHORS)
+* Allowed editors: vi, vim, emacs
+* All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
+* All your files should end with a new line
+* A README.md file, at the root of the folder of the project is mandatory
+* Your code should use the Betty style. It will be checked using [betty-style.pl](https://github.com/alx-tools/Betty/blob/master/betty-style.pl) and [betty-doc.pl](https://github.com/alx-tools/Betty/blob/master/betty-doc.pl)
+* Your shell should not have any memory leaks
+* No more than 5 functions per file
+* All your header files should be include guarded
+* Use system calls only when you need to (why?)
+* Write a README with the description of your project
+* You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. Format, see [Docker](https://github.com/moby/moby/blob/master/AUTHORS)
