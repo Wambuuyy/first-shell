@@ -26,7 +26,7 @@ Prompt looks like this: Pru$$
 *  If the command is not executable, an error is displayed and the prompt appers again.
 
 
-<h2>HOW IT WORKS:</h2>
+<h2>How it works:</h2>
 
 These steps will explain:
 1. When the user runs a program, aparent process is created.<\n>
