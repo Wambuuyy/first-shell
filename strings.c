@@ -13,21 +13,6 @@ void rem_newline(char *string)
     string[len -1] = '\0';
 }
 
-
-/**
- * strlen_ - calculates the length of the string
- * @string: string whose length is being determined
- * Return: the length of the string
- */
-size_t strlen_(const char *string)
-{
-  size_t len = 0;
-
-  while (string[len] != '\0')
-    len++;
-  return len
-}
-
 /**
  * free_str - frees the allocated memory for an array of strings
  * @string: pointer to array of strings
