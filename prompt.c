@@ -41,3 +41,8 @@ void handle_EOF(char **input)
     free(*input);
     exit(EXIT_SUCCESS);
 }
+
+void signal_handler()
+{
+  signal(SIGNINT, sign_handle);
+}
