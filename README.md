@@ -4,6 +4,8 @@
 The repo contains files of the simple shell that mimics the Unix SHell program:
 It accepts and executes user commands.
 
+[Project management](https://docs.google.com/spreadsheets/d/1VcajuEFv1aEa87yXXfWBfXktWsUIBeHAIHx97ZcX9Hg/edit?pli=1#gid=0)
+
 I mostly used these calls:
 fork, wait, waitpid, free, getline, read, write, open, execve, exit, fflush,
 malloc, isatty, perror, strtok.
