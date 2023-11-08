@@ -16,9 +16,13 @@ int exit_builtin(char *string) {
 
 /**
  * exit_shell - A function that exits the shell.
- * @command: The command array.
+ * @args: The command array.
+ * @input_buf: user input being read
+ * @program: name of the program
+ * @exit_code: code at the exit time
+ * Return: nothing
  */
-void exit_shell(char **args, char *input_buf, char *program, int exit_coder)
+void exit_shell(char **args, char *input_buf, char *program, int exit_code)
 {
     int condition = 0, i;
 
