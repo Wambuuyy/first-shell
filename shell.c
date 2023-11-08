@@ -31,15 +31,14 @@ int  main(int __attribute__((unused)) argc, char **argv, char **env)
         tokens = tokenizer(input_buf, " \0");
         free(input_buf);
         if (!exit_builtin(tokens[0]))
-          exit_shell(tokens, av[0], env, iterations);
+          exit_shell(tokens, argv[0], env, iterations);
         else if (!is_cd_builtin(tokens[0]))
           execute_cd_command(tokens);
         else
-          create_child_process(tokens, av[0], env, iterations);
+          create_child_process(tokens, argv[0], env, iterations);
       }
       clear_stdin_buffer();/*fflush(stdin)*/
       input_buf = NULL;
-      BUFFER_SIZE = 0;/* reset to 0/
   }
   if (chars_number == -1)
     return (EXIT_FAILURE);
