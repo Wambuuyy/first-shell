@@ -32,12 +32,12 @@ int  main(int __attribute__((unused)) argc, char **argv, char **env)
         free(input_buf);
         if (!exit_builtin(tokens[0]))
           exit_shell(tokens, argv[0], env, iterations);
-        else if (!is_cd_builtin(tokens[0]))
-          execute_cd_command(tokens);
+        else if (!cd_builtin(tokens[0]))
+          change_dir(tokens);
         else
-          create_child_process(tokens, argv[0], env, iterations);
+          child_process(tokens, argv[0], env, iterations);
       }
-      clear_stdin_buffer();/*fflush(stdin)*/
+      clear_buffer();/*fflush(stdin)*/
       input_buf = NULL;
   }
   if (chars_number == -1)
