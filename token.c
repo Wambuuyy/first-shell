@@ -16,7 +16,7 @@ char **tokenizer(char *input_buf, const char *delimiter)
   if (input_buf == NULL)
     return NULL;
 
-  tokens = (char **)malloc((bufsize + 1) * sizeof(char *));
+  tokens = (char **)malloc((buf_size + 1) * sizeof(char *));
   if (tokens == NULL)
   {
     perror("no memory was allocated...an error occured");
