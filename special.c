@@ -11,7 +11,7 @@ size_t strlen_(const char *string)
 
   while (string[len] != '\0')
     len++;
-  return len
+  return len;
 }
 
 /**
@@ -26,8 +26,8 @@ char *strcpy_(char *destination, const char *source)
     char *start = destination;
     size_t i = 0;
 
-    while (src[i] != '\0') {
-        destination[i] = src[i];
+    while (source[i] != '\0') {
+        destination[i] = source[i];
         i++;
     }
     destination[i] = '\0'; // Append null character at the end
