@@ -5,10 +5,11 @@
  * @args: The command to check
  * Return: 1 if command is cd, 0 otherwise
  */
-int cd_builtin(char *args) {
-  if (strcmp_(args, "cd") == 0)
-    return 1;
-  return 0;
+int cd_builtin(char *args)
+{
+	if (strcmp_(args, "cd") == 0)
+		return (1);
+	return (0);
 }
 
 /**
@@ -28,6 +29,7 @@ int change_dir(char **args)
 		store = chdir(getenv("OLDPWD"));
 	}
 	else
+
 		store = chdir(args[1]);
 
 	if (store == -1)
