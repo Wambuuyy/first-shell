@@ -50,7 +50,7 @@ void free_str(char **string);
 char **tokenizer(char *input_buf, const char *delimiter);
 
 /************prompt.c************/
-void display_prompt (void);
+void display_prompt(void);
 void sign_handle(int signal);
 void handle_EOF(char **input);
 void signal_handler(void);

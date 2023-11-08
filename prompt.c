@@ -6,21 +6,21 @@
  * Return: it is void; so nothing
  */
 
-void display_prompt (void)
+void display_prompt(void)
 {
-  if (isatty(STDIN_FILENO))
-    write(STDOUT_FILENO, "Pru$ ", 5);
+	if (isatty(STDIN_FILENO))
+		write(STDOUT_FILENO, "Pru$ ", 5);
 }
 
 /**
- * sign_handle - A function that handles the Ctrl + C 
+ * sign_handle - A function that handles the Ctrl + C
  * @signal: the signal to be handled
  * Return: nothing
  */
 void sign_handle(int signal)
 {
-  (void)signal;
-  write(STDOUT_FILENO, "\nPru$ ", 6);
+	(void)signal;
+	write(STDOUT_FILENO, "\nPru$ ", 6);
 }
 
 /**
@@ -30,19 +30,21 @@ void sign_handle(int signal)
  */
 void handle_EOF(char **input)
 {
-  if (*input) {
-        free(*input);
-        *input = NULL;
-    }
+	if (*input)
+	{
+		free(*input);
+		*input = NULL;
+	}
 
-    if (isatty(STDIN_FILENO)) {
-        write(STDOUT_FILENO, "\n", 1);
-    }
-    free(*input);
-    exit(EXIT_SUCCESS);
+	if (isatty(STDIN_FILENO))
+	{
+		write(STDOUT_FILENO, "\n", 1);
+	}
+	free(*input);
+	exit(EXIT_SUCCESS);
 }
 
-void signal_handler()
+void signal_handler(void)
 {
-  signal(SIGNINT, sign_handle);
+	signal(SIGNINT, sign_handle);
 }
