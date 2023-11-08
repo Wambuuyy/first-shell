@@ -8,35 +8,35 @@
  */
 char **tokenizer(char *input_buf, const char *delimiter)
 {
-  char *token = NULL;
-  char **tokens = NULL;
-  size_t buf_size = BUFFER_SIZE;
-  int index = 0;
+	char *token = NULL;
+	char **tokens = NULL;
+	size_t buf_size = BUFFER_SIZE;
+	int index = 0;
 
-  if (input_buf == NULL)
-    return NULL;
+	if (input_buf == NULL)
+		return (NULL);
 
-  tokens = (char **)malloc((buf_size + 1) * sizeof(char *));
-  if (tokens == NULL)
-  {
-    perror("no memory was allocated...an error occured");
-    exit(EXIT_FAILURE);
-  }
+	tokens = (char **)malloc((buf_size + 1) * sizeof(char *));
+	if (tokens == NULL)
+	{
+		perror("no memory was allocated...an error occured");
+		exit(EXIT_FAILURE);
+	}
 
-  token = strtok(input_buf, delimiter);
-  while (token != NULL)
-  {
-    tokens[index] = (char *)malloc(strlen_(token) + 1);
-    if (tokens[index] == NULL)
-    {
-      perror("no memory was allocated...an error occured");
-      free_str(tokens);
-      return (NULL);
-    }
-    strcpy_(tokens[index], token);
-    token = strtok(NULL, delimiter);
-    index++;
-  }
-  tokens[index] = NULL;
-  return tokens;
+	token = strtok(input_buf, delimiter);
+	while (token != NULL)
+	{
+		tokens[index] = (char *)malloc(strlen_(token) + 1);
+		if (tokens[index] == NULL)
+		{
+			perror("no memory was allocated...an error occured");
+			free_str(tokens);
+			return (NULL);
+		}
+		strcpy_(tokens[index], token);
+		token = strtok(NULL, delimiter);
+		index++;
+	}
+	tokens[index] = NULL;
+	return (tokens);
 }
