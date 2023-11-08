@@ -63,3 +63,20 @@ void exit_shell(char **args, char *input_buf, char *program, int exit_code)
         }
     }
 }
+
+/*
+ * exit_free: enseres the memory is freed before exiting
+ * @args: pointer to a pointer to memory to be freed
+ *Return: nothing
+ */
+void free_exit(char **args)
+{
+    size_t i;
+
+    if (args ==NULL)
+        return;
+    for (i = 0; args[i]; i++)
+        free(args[i]);
+    (args[i] == NULL)? free(args[i]): free(args);
+    exit(EXIT_FAILURE);
+}
