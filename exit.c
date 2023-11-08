@@ -69,7 +69,7 @@ void exit_shell(char **args, char *input_buf, char *program, int exit_code)
  * @args: pointer to a pointer to memory to be freed
  *Return: nothing
  */
-void free_exit(char **args)
+void exit_free(char **args)
 {
     size_t i;
 
