@@ -30,7 +30,7 @@ int  main(int __attribute__((unused)) argc, char **argv, char **env)
         rem_newline(input_buf);
         tokens = tokenizer(input_buf, " \0");
         free(input_buf);
-        if (!is_exit_builtin(tokens[0]))
+        if (!exit_builtin(tokens[0]))
           exit_shell(tokens, av[0], env, iterations);
         else if (!is_cd_builtin(tokens[0]))
           execute_cd_command(tokens);
