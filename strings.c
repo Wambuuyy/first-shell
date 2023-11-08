@@ -8,9 +8,10 @@
 
 void rem_newline(char *string)
 {
-  size_t len = strlen_(string);
-  if (len > 0 && string[len - 1] == '\n')
-    string[len -1] = '\0';
+	size_t len = strlen_(string);
+
+	if (len > 0 && string[len - 1] == '\n')
+		string[len - 1] = '\0';
 }
 
 /**
@@ -21,11 +22,10 @@ void rem_newline(char *string)
 
 void free_str(char **string)
 {
-  if (string == NULL)
-    return;
+	if (string == NULL)
+		return;
 
-  for(int i = 0; string[i] != NULL; i++)
-    free(string[i]);
-
-  free(string);
+	for (int i = 0; string[i] != NULL; i++)
+		free(string[i]);
+	free(string);
 }
