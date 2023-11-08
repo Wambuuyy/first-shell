@@ -37,7 +37,7 @@ int  main(int __attribute__((unused)) argc, char **argv, char **env)
         else
           child(tokens, argv[0], env, iterations);
       }
-      clear_buffer();/*fflush(stdin)*/
+      fflush(stdin);
       input_buf = NULL;
   }
   if (chars_number == -1)
