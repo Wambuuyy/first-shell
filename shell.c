@@ -14,11 +14,11 @@ int  main(int __attribute__((unused)) argc, char **argv, char **env)
 	char **tokens = NULL;
 	size_t buffer_size = 1024u;
 	ssize_t chars_number = 0;
-	int iterations = 0;
+	int err_code = 0;
 
 	while (1)
 	{
-		iterations++;
+		err_code++;
 		display_prompt();
 		signal_handler();
 		chars_number = getline(&input_buf, &buffer_size, stdin);
@@ -32,7 +32,7 @@ int  main(int __attribute__((unused)) argc, char **argv, char **env)
 			tokens = tokenizer(input_buf, " \0");
 			free(input_buf);
 			if (!exit_builtin(tokens[0]))
-				exit_shell(tokens, argv[0], env[0], iterations);
+				exit_shell(tokens, argv[0], env[0], err_code);
 			else if (!cd_builtin(tokens[0]))
 				change_dir(tokens);
 			else

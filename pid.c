@@ -22,12 +22,8 @@ void child(char **args, char **env)
 	}
 	if (pid == 0)
 	{
-		if (execve(args[0], args, env) == -1)
-		{
-			perror("Execution Failed");
-			exit_free(args);
-			exit(EXIT_FAILURE);
-		}
+		execute(args[0],env);
+		exit(EXIT_SUCCESS);
 	}
 	else
 	{
@@ -38,6 +34,11 @@ void child(char **args, char **env)
 			continue;
 		}
 		error = waitpid(pid, &status, 0);
-		(error < 0) ? perror("waitpid") : exit_free(args);
+		if (error < 0) 
+		{
+			perror("waitpid");
+			exit_free(args);
+			exit(EXIT_FAILURE);
+		}
 	}
 }
