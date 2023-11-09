@@ -2,12 +2,14 @@
 
 /**
  * exit_builtin - checks if a string is the exit built-in command.
- * @string: The command to check if it is exit
+ * @args: The command to check if it is exit
  * Return: 1 if the command is the exit built-in command, 0 otherwise.
  */
-int exit_builtin(char *string)
+int exit_builtin(char *args)
 {
-	(strcmp_(command, "exit") == 0) ? return : return 0;
+	if (strcmp_(args, "exit") == 0)
+		return (0);
+	return (0);
 }
 
 /**
@@ -20,7 +22,7 @@ int exit_builtin(char *string)
  */
 void exit_shell(char **args, char *input_buf, char *program, int exit_code)
 {
-	int condition = 0, i;
+	int status, i;
 
 	if (args[1] == NULL)
 	{
@@ -28,33 +30,33 @@ void exit_shell(char **args, char *input_buf, char *program, int exit_code)
 		free_str(args);
 		exit(EXIT_SUCCESS);
 	}
-	if (err_number == 2)/* the ENOENT code*/
+	if (exit_code == 2)/* the ENOENT code*/
 	{
 		free(input_buf);
 		free_str(args);
-		pru_exit(2);
+		_exit(2);
 	}
 	for (i = 0; (args[1][i] != '\0'); i++)
 	{
-		if (isalpha(args[1][i] != 0)
+		if (isalpha(args[1][i] != 0))
 		{
-			perror_(program, err_code, args);
+			perror_(program, exit_code, args);
 			break;
 		}
 		else
-			{
-			condition = atoi(args[1]);
-			if (condition < 0)
+		{
+			status = atoi(args[1]);
+			if (status < 0)
 			{
 				free(input_buf);
 				free_str(args);
-				exit(2)
+				exit(2);
 			}
 			else
 			{
 				free(input_buf);
 				free_str(args);
-				exit(condition & 0XFF);
+				exit(status & 0XFF);
 			}
 		}
 	}

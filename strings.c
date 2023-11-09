@@ -22,10 +22,12 @@ void rem_newline(char *string)
 
 void free_str(char **string)
 {
+	int i;
+
 	if (string == NULL)
 		return;
 
-	for (int i = 0; string[i] != NULL; i++)
+	for (i = 0; string[i] != NULL; i++)
 		free(string[i]);
 	free(string);
 }

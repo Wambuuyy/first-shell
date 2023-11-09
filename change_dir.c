@@ -24,7 +24,7 @@ int change_dir(char **args)
 
 	if (args[1] == NULL)
 		store = chdir(getenv("HOME"));
-	else if (strcmp_(cmd[1], "-") == 0)
+	else if (strcmp_(args[1], "-") == 0)
 	{
 		store = chdir(getenv("OLDPWD"));
 	}
@@ -39,7 +39,7 @@ int change_dir(char **args)
 	}
 	else if (store != -1)
 	{
-		getcwd(working_dir, sizeof(cwd));
+		getcwd(working_dir, sizeof(working_dir));
 		setenv("OLDPWD", getenv("PWD"), 1);
 		setenv("PWD", working_dir, 1);
 	}

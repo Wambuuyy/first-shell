@@ -3,12 +3,10 @@
 /**
  * child - forks an execution creating a sub-process
  * @args: array of commands
- * @program: name of the program
  * @env: array of the environment variables
- * @iterations: number of cycles
  * Return: nothing
  */
-void child(char **args, char *program, char **env, int iterations)
+void child(char **args, char **env)
 {
 	pid_t pid;
 	int status = 0, error;
@@ -18,7 +16,7 @@ void child(char **args, char *program, char **env, int iterations)
 
 	if (pid < 0)
 	{
-		perror("fork");
+		perror("Fork: ");
 		exit_free(args);
 		exit(EXIT_FAILURE);
 	}
@@ -26,7 +24,7 @@ void child(char **args, char *program, char **env, int iterations)
 	{
 		if (execve(args[0], args, env) == -1)
 		{
-			perror("execve");
+			perror("Execution Failed");
 			exit_free(args);
 			exit(EXIT_FAILURE);
 		}

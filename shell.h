@@ -27,7 +27,7 @@ void exit_shell(char **args, char *input_buf, char *program, int exit_code);
 void exit_free(char **args);
 
 /************pid.c************/
-void child(char **args, char *program, char **env, int iterations);
+void child(char **args, char **env);
 
 /************print.c************/
 void perror_(const char *program, int err_code, char **args);
@@ -40,11 +40,15 @@ int strcmp_(const char *string1, const char *string2);
 /************strings.c************/
 void rem_newline(char *string);
 void free_str(char **string);
-	
-/* execute command*/
-//void execute_cmd(const char *command);
-/* user input*/
-//void user_input(char * command, size_t size);
+
+/************itoa.c************/
+char *itoa_(unsigned int num);
+
+/** execute command
+ * void execute_cmd(const char *command);
+ * user input
+ * void user_input(char * command, size_t size);
+ */
 
 /************token.c************/
 char **tokenizer(char *input_buf, const char *delimiter);
@@ -52,7 +56,7 @@ char **tokenizer(char *input_buf, const char *delimiter);
 /************prompt.c************/
 void display_prompt(void);
 void sign_handle(int signal);
-void handle_EOF(char **input);
+void handle_EOF(char **input_buf);
 void signal_handler(void);
 
 /************shell.c************/

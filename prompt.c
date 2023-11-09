@@ -28,23 +28,28 @@ void sign_handle(int signal)
  * @input: pointer to a pointer to string that is entered(inputted)
  * Return: Nothing
  */
-void handle_EOF(char **input)
+void handle_EOF(char **input_buf)
 {
-	if (*input)
+	if (*input_buf)
 	{
-		free(*input);
-		*input = NULL;
+		free(*input_buf);
+		*input_buf = NULL;
 	}
 
 	if (isatty(STDIN_FILENO))
 	{
 		write(STDOUT_FILENO, "\n", 1);
 	}
-	free(*input);
 	exit(EXIT_SUCCESS);
 }
 
+/**
+ * signal_handler - Sets up a signal handler for the SIGINT signal
+ * 
+ * Description: This function sets up a signal handler for the SIGINT signal
+ * Return: nothing.
+ */
 void signal_handler(void)
 {
-	signal(SIGNINT, sign_handle);
+	signal(SIGINT, sign_handle);
 }
