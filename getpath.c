@@ -1,3 +1,4 @@
+#include "shell.h"
 /**
  * get_path - Extracts and tokenizes the PATH variable from the environment.
  * @env: The array of environmental variables.
