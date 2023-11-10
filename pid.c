@@ -29,7 +29,7 @@ void child(char **args, char *program, char **env, int err_code)
 	{
 		/*parent process*/
 		error = waitpid(pid, &status, 0);
-		if (error < 0) 
+		if (error < 0)
 		{
 			perror("waitpid");
 			exit_free(args);

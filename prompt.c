@@ -45,7 +45,6 @@ void handle_EOF(char **input_buf)
 
 /**
  * signal_handler - Sets up a signal handler for the SIGINT signal
- * 
  * Description: This function sets up a signal handler for the SIGINT signal
  * Return: nothing.
  */

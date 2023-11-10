@@ -2,7 +2,7 @@
 
 /**
  * itoa_ - converts an unsigned integer to a string
- * @num: numbeng converted to a stringr 
+ * @num: numbeng converted to a string
  * Return: pointer to the resulting string
  */
 char *itoa_(unsigned int num)
@@ -31,6 +31,6 @@ char *itoa_(unsigned int num)
 		str[len] = (num % 10) + '0';
 		num /= 10;
 	}
-	return str;
+	return (str);
 }
 
