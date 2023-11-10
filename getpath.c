@@ -20,7 +20,7 @@ char **get_path(char **env)
 			/* Allocate memory for path array */
 			path_var = env[i] + 5; /* Skip "PATH=" in the environment variable */
 			path = (char **)malloc(sizeof(char *));
-			if (!path) perror("Memory allocation error"), exit(EXIT_FAILURE);
+			(!path) ? perror("Memory allocation error") : exit(EXIT_FAILURE);
 			/* Tokenize the PATH variable using ':' as delimiter */
 			token = strtok(path_var, ":");
 			count = 0;
@@ -28,7 +28,7 @@ char **get_path(char **env)
 			{
 				/* Allocate memory for each path in the array */
 				path[count] = strdup(token);
-				if (!path[count]) perror("Memory allocation error"), exit(EXIT_FAILURE);
+				(!path[count]) ? perror("Memory allocation error") : exit(EXIT_FAILURE);
 				++count;
 				/* Resize the path array */
 				path = (char **)realloc(path, (count + 1) * sizeof(char *));
@@ -44,5 +44,5 @@ char **get_path(char **env)
 			break; /* Exit the loop once PATH is found */
 		}
 	}
-	return path;
+	return (path);
 }
