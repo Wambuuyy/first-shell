@@ -48,9 +48,7 @@ void execute(char **args, char *program, char **env, int exit_code)
 	free_str(path);
 	exit_free(args);
 	exit(exit_code);
-	}
 }
-
 /**
  * p_env - Prints environmental variables.
  * @env: Array of environmental variables.
