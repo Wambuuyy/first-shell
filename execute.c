@@ -45,7 +45,7 @@ void execute(char **args, char *program, char **env, int exit_code)
 		}
 	}
 	write(STDERR_FILENO, args[0], strlen(args[0]));
-	write(STDERR_FILENO, &error, strlen(error));
+	write(STDERR_FILENO, error, strlen(error));
 	free_str(path);
 	exit_free(args);
 	exit(exit_code);
