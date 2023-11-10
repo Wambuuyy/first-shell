@@ -1,5 +1,13 @@
 #include "shell.h"
-
+/**
+ * perror_ - Print an error message to the standard error stream.
+ * @program: Name of the program.
+ * @err_code: Error code.
+ * @args: Array of strings representing command-line arguments.
+ *
+ * This function prints an error message to the standard error stream,
+ * including the program name, error code, and the first command-line argument.
+ */
 void perror_(const char *program, int err_code, char **args)
 {
 	char *error_message = "!!Error";
