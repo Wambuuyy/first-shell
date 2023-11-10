@@ -25,7 +25,7 @@ void sign_handle(int signal)
 
 /**
  * handle_EOF - handles end-of-file condition and frees the buffer
- * @input: pointer to a pointer to string that is entered(inputted)
+ * @input_buf: pointer to a pointer to string that is entered(inputted)
  * Return: Nothing
  */
 void handle_EOF(char **input_buf)
