@@ -14,6 +14,7 @@ void execute(char **args, char *program, char **env, int exit_code)
 	char **path = NULL;
 	char *fpath = NULL;
 	char *error = ": command not found\n";
+	char **cpath;
 
 	if (args == NULL || args[0] == NULL)
 	{
@@ -27,10 +28,10 @@ void execute(char **args, char *program, char **env, int exit_code)
 	}
 	if (stat(args[0], &st) == 0 || (path = get_path(env)) == NULL)
 	{
-		char **current_path = (path == NULL) ? NULL : path;
-		while (current_path && *current_path)
+		cpath = (path == NULL) ? NULL : path;
+		while (cpath && *current_path)
 		{
-			fpath = strcat_(*current_path, args[0]);
+			fpath = strcat_(*path, args[0]);
 			if (stat(fpath, &st) == 0 && execve(fpath, args, env) >= 0)
 			{
 				perror(program);
@@ -40,7 +41,7 @@ void execute(char **args, char *program, char **env, int exit_code)
 				exit(exit_code);
 			}
 			free(fpath);
-			++current_path;
+			++cpath;
 		}
 	}
 	write(STDERR_FILENO, args[0], strlen(args[0]));
