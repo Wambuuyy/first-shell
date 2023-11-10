@@ -3,6 +3,8 @@
 /**
  * child - forks an execution creating a sub-process
  * @args: array of commands
+ * @program: Name of the program to execute.
+ * @err_code: Error code to be set in case of failure.
  * @env: array of the environment variables
  * Return: nothing
  */
