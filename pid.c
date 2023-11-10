@@ -6,7 +6,7 @@
  * @env: array of the environment variables
  * Return: nothing
  */
-void child(char **args, char **env)
+void child(char **args, char *program, char **env, int err_code)
 {
 	pid_t pid;
 	int status = 0, error;
@@ -22,17 +22,12 @@ void child(char **args, char **env)
 	}
 	if (pid == 0)
 	{
-		execute(args[0],env);
+		execute(args, program, env, err_code);
 		exit(EXIT_SUCCESS);
 	}
 	else
 	{
 		/*parent process*/
-		while (wait(&status) != pid)
-		{
-			/*it waits for the childprocess to end*/
-			continue;
-		}
 		error = waitpid(pid, &status, 0);
 		if (error < 0) 
 		{
