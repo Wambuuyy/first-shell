@@ -84,6 +84,8 @@ char **get_path(char **env)
 			token = strtok(path_var, ":");
 			count = 0;
 			while (token != NULL)
+
+
 				/* Allocate memory for each path in the array */
 				path[count] = strdup(token);
 				if (path[count] == NULL)
