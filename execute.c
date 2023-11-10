@@ -30,7 +30,7 @@ void execute(char **args, char *program, char **env, int exit_code)
 	if (stat(args[0], &st) == 0 || path == NULL)
 	{
 		cpath = (path == NULL) ? NULL : path;
-		while (cpath && *current_path)
+		while (cpath && *cpath)
 		{
 			fpath = strcat_(*path, args[0]);
 			if (stat(fpath, &st) == 0 && execve(fpath, args, env) >= 0)
