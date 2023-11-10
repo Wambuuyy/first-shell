@@ -26,39 +26,29 @@ void execute(char **args, char *program, char **env, int exit_code)
 		p_env(env);
 		exit(exit_code);
 	}
-	if (stat(args[0], &args, env) == 0)
+	if (stat(args[0], &st) == 0 || (path = get_path(env)) == NULL)
 	{
-		if (execve(args[0], &args, env) < 0)
+		char **current_path = (path == NULL) ? NULL : path;
+		while (current_path && *current_path)
 		{
-			perror(program);
-			exit_free(args);
-			exit(exit_code);
-		}
-	else
-	{
-		path = get_path(env);
-		for (i = 0; path[i] != NULL; ++i)
-		{
-			fpath = strcat_(path[i], args[0]);
-			if (stat(fpath, &st) == 0)
+			fpath = strcat_(*current_path, args[0]);
+			if (stat(fpath, &st) == 0 && execve(fpath, args, env) >= 0)
 			{
-				if (execve(fpath, args, env) < 0)
-				{
-					perror(program);
-					free(fpath);
-					free_str(path);
-					exit_free(args);
-					exit(exit_code);
-				}
+				perror(program);
+				free(fpath);
+				free_str(path);
+				exit_free(args);
+				exit(exit_code);
 			}
 			free(fpath);
+			++current_path;
 		}
-		/* command not found in PATH dir*/
-		write(STDERR_FILENO, args[0], strlen(args[0]));
-		write(STDERR_FILENO, &error, strlen(error));
-		free_str(path);
-		exit_free(args);
-		exit(exit_code);
+	}
+	write(STDERR_FILENO, args[0], strlen(args[0]));
+	write(STDERR_FILENO, &error, strlen(error));
+	free_str(path);
+	exit_free(args);
+	exit(exit_code);
 	}
 }
 
