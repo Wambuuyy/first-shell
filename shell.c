@@ -36,7 +36,7 @@ int  main(int __attribute__((unused)) argc, char **argv, char **env)
 			else if (!cd_builtin(tokens[0]))
 				change_dir(tokens);
 			else
-				child(tokens,argv[0], env,err_code);
+				child(tokens, argv[0], env,err_code);
 		}
 		fflush(stdin);
 		input_buf = NULL;
