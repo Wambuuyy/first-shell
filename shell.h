@@ -27,7 +27,7 @@ void exit_shell(char **args, char *input_buf, char *program, int exit_code);
 void exit_free(char **args);
 
 /************pid.c************/
-void child(char **args, char **env);
+void child(char **args, char *program, char **env, int err_code);
 
 /************print.c************/
 void perror_(const char *program, int err_code, char **args);
@@ -36,6 +36,7 @@ void perror_(const char *program, int err_code, char **args);
 size_t strlen_(const char *string);
 char *strcpy_(char *destination, const char *source);
 int strcmp_(const char *string1, const char *string2);
+char *strcat_(char *string1, char *string2);
 
 /************strings.c************/
 void rem_newline(char *string);
@@ -44,12 +45,11 @@ void free_str(char **string);
 /************itoa.c************/
 char *itoa_(unsigned int num);
 
-/** execute command
- * void execute_cmd(const char *command);
- * user input
- * void user_input(char * command, size_t size);
- */
+/************execute command************/
+void execute(char **args, char *program, char **env, int exit_code);
 
+void p_env(char **env);
+char **get_path(char **env);
 /************token.c************/
 char **tokenizer(char *input_buf, const char *delimiter);
 
