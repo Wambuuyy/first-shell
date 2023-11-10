@@ -63,7 +63,7 @@ void exit_shell(char **args, char *input_buf, char *program, int exit_code)
 }
 
 /*
- * exit_free - enseres the memory is freed before exiting
+ * exit_free - Frees memory allocated for an array of strings and exits the program.
  * @args: pointer to a pointer to memory to be freed
  * Return: nothing
  */
