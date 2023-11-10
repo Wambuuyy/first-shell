@@ -26,7 +26,8 @@ void execute(char **args, char *program, char **env, int exit_code)
 		p_env(env);
 		exit(exit_code);
 	}
-	if (stat(args[0], &st) == 0 || (path = get_path(env)) == NULL)
+	path = get_path(env);
+	if (stat(args[0], &st) == 0 || path == NULL)
 	{
 		cpath = (path == NULL) ? NULL : path;
 		while (cpath && *current_path)
