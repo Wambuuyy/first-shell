@@ -62,10 +62,14 @@ void exit_shell(char **args, char *input_buf, char *program, int exit_code)
 	}
 }
 
-/*
- * exit_free - Frees memory allocated for an array of strings and exits the program.
- * @args: pointer to a pointer to memory to be freed
- * Return: nothing
+/**
+ * exit_free - Frees memory allocated for an
+ * array of strings and exits the program.
+ * @args: Array of strings to be freed.
+ *
+ * This function frees the memory allocated for the
+ * array of strings pointed to
+ * by @args and then exits the program using the exit function.
  */
 void exit_free(char **args)
 {
