@@ -59,9 +59,9 @@ int strcmp_(const char *string1, const char *string2)
 
 /**
  * strcat_ - function that concatenates two strings
- * @string1 - pointer to the destination string
- * @string2 - pointer to the second string the source
- * Return: a pointer to the resulting string or null on failure
+ * @string1: The destination string to which the other string is appended.
+ * @string2: The source string that is appended to the destination string.
+ * Return: a pointer to the resulting string (&string1) or null on failure
  */
 char *strcat_(char *string1, char *string2)
 {
