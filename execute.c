@@ -13,7 +13,6 @@ void execute(char **args, char *program, char **env, int exit_code)
 	struct stat st;
 	char **path = NULL;
 	char *fpath = NULL;
-	unsigned int i;
 	char *error = ": command not found\n";
 
 	if (args == NULL || args[0] == NULL)
