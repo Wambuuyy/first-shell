@@ -63,9 +63,9 @@ void exit_shell(char **args, char *input_buf, char *program, int exit_code)
 }
 
 /*
- * exit_free: enseres the memory is freed before exiting
+ * exit_free - enseres the memory is freed before exiting
  * @args: pointer to a pointer to memory to be freed
- *Return: nothing
+ * Return: nothing
  */
 void exit_free(char **args)
 {
