@@ -29,17 +29,20 @@ void execute(char **args, char *program, char **env, int exit_code)
 	path = get_path(env);
 	if (stat(args[0], &st) == 0 || path == NULL)
 	{
-		cpath = (path == NULL) ? NULL : path;
+		cpath = path;
 		while (cpath && *cpath)
 		{
 			fpath = strcat_(*path, args[0]);
-			if (stat(fpath, &st) == 0 && execve(fpath, args, env) >= 0)
+			if (stat(fpath, &st))
 			{
-				perror(program);
-				free(fpath);
-				free_str(path);
-				exit_free(args);
-				exit(exit_code);
+				if (execve(fpath, args, env) >= 0)
+				{
+					perror(program);
+					free(fpath);
+					free_str(path);
+					exit_free(args);
+					exit(exit_code);
+				}
 			}
 			free(fpath);
 			++cpath;

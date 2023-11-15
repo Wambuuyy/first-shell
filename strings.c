@@ -25,9 +25,13 @@ void free_str(char **string)
 	int i;
 
 	if (string == NULL)
+	{
 		return;
-
+	}
 	for (i = 0; string[i] != NULL; i++)
+	{
 		free(string[i]);
+		string[i] = NULL;
+	}
 	free(string);
 }

@@ -8,9 +8,22 @@
 char *itoa_(unsigned int num)
 {
 	int len = 0;
-	unsigned int temp = num;
+	unsigned int temp;
 	char *str;
 
+	if (num == 0)
+	{
+		str = (char *)malloc(2);
+		if (!str)
+		{
+			perror("Memory allocation failed");
+			exit(EXIT_FAILURE);
+		}
+		str[0] = '0';
+		str[1] = '\0';
+		return (str);
+	}
+	temp = num;
 	/*count number's digits*/
 	while (temp != 0)
 	{
@@ -33,4 +46,3 @@ char *itoa_(unsigned int num)
 	}
 	return (str);
 }
-

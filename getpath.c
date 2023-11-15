@@ -28,13 +28,19 @@ char **get_path(char **env)
 			{
 				/* Allocate memory for each path in the array */
 				path[count] = strdup(token);
-				(!path[count]) ? perror("Memory allocation error") : exit(EXIT_FAILURE);
+				if (!path[count])
+				{
+					perror("Memory allocation error");
+					free_path(path);
+					exit(EXIT_FAILURE);
+				}
 				++count;
 				/* Resize the path array */
 				path = (char **)realloc(path, (count + 1) * sizeof(char *));
 				if (path == NULL)
 				{
 					perror("Memory allocation error");
+					free_path(path);
 					exit(EXIT_FAILURE);
 				}
 				token = strtok(NULL, ":");
@@ -45,4 +51,17 @@ char **get_path(char **env)
 		}
 	}
 	return (path);
+}
+
+void free_path(char **path)
+{
+	int i;
+	if (path != NULL)
+	{
+		for (i = 0; path[i] != NULL; ++i)
+		{
+			free(path[i]);
+		}
+		free(path);
+	}
 }

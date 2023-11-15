@@ -38,13 +38,13 @@ void exit_shell(char **args, char *input_buf, char *program, int exit_code)
 	}
 	for (i = 0; (args[1][i] != '\0'); i++)
 	{
-		if (isalpha(args[1][i] != 0))
+		if (!isalpha(args[1][i]))
 		{
 			perror_(program, exit_code, args);
 			break;
 		}
 		else
-		{
+		{		
 			status = atoi(args[1]);
 			if (status < 0)
 			{
@@ -60,6 +60,7 @@ void exit_shell(char **args, char *input_buf, char *program, int exit_code)
 			}
 		}
 	}
+	free_str(args);
 }
 
 /**
@@ -76,9 +77,14 @@ void exit_free(char **args)
 	size_t i;
 
 	if (args == NULL)
+	{
 		return;
+	}
 	for (i = 0; args[i]; i++)
+	{
 		free(args[i]);
-	(args[i] == NULL) ? free(args[i]) : free(args);
+		args[i] = NULL;
+	}
+	free(args);
 	exit(EXIT_FAILURE);
 }

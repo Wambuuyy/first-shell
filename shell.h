@@ -49,7 +49,9 @@ char *itoa_(unsigned int num);
 void execute(char **args, char *program, char **env, int exit_code);
 
 void p_env(char **env);
+/*************getpath**************/
 char **get_path(char **env);
+void free_path(char **path);
 /************token.c************/
 char **tokenizer(char *input_buf, const char *delimiter);
 

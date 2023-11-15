@@ -7,9 +7,7 @@
  */
 int cd_builtin(char *args)
 {
-	if (strcmp_(args, "cd") == 0)
-		return (1);
-	return (0);
+	return(strcmp_(args, "cd") == 0);
 }
 
 /**
@@ -19,7 +17,9 @@ int cd_builtin(char *args)
  */
 int change_dir(char **args)
 {
-	int store = -1;
+	const int SUCCESS = 0;
+	const int FAILURE = -1;
+	int store = FAILURE;
 	char working_dir[PATH_MAX];
 
 	if (args[1] == NULL)
@@ -32,16 +32,16 @@ int change_dir(char **args)
 
 		store = chdir(args[1]);
 
-	if (store == -1)
+	if (store == FAILURE)
 	{
 		perror("hsh");
-		return (-1);
+		return (FAILURE);
 	}
-	else if (store != -1)
+	else if (store == SUCCESS)
 	{
 		getcwd(working_dir, sizeof(working_dir));
 		setenv("OLDPWD", getenv("PWD"), 1);
 		setenv("PWD", working_dir, 1);
 	}
-	return (0);
+	return (SUCCESS);
 }

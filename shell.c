@@ -19,7 +19,10 @@ int  main(int __attribute__((unused)) argc, char **argv, char **env)
 	while (1)
 	{
 		err_code++;
-		display_prompt();
+		if (isatty(STDIN_FILENO))
+		{
+			display_prompt();
+		}
 		signal_handler();
 		chars_number = getline(&input_buf, &buffer_size, stdin);
 		if (chars_number == -1)/* EOF is rep by -1*/
